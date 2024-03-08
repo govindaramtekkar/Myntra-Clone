@@ -40,3 +40,9 @@ jobs:
           DOCKER_CLI_ACI: 1
 
    
+  deploy:
+     needs: build
+     runs-on: self-hosted # Use your self-hosted runner label here
+     steps:
+      - name: Run the container
+        run: docker run -d --name myntra -p 3000:3000 govindaim/myntra:latest
